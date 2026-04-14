@@ -3,12 +3,18 @@ const express = require("express")
 const app = express()
 const mongoose = require("mongoose")
 const cors = require("cors")
+const authRoutes = require("./Routes/authRoutes")
 
 
 app.use(cors({
     origin: process.env.ORIGIN,
     credentials: true
 }))
+
+app.use(express.json())
+
+
+app.use("/api/auth", authRoutes)
 
 mongoose.connect(process.env.MONGO_URL)
     .then(() => {
