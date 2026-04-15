@@ -4,6 +4,8 @@ const app = express()
 const mongoose = require("mongoose")
 const cors = require("cors")
 const authRoutes = require("./Routes/authRoutes")
+const jobRoutes = require("./Routes/jobRoutes")
+const applicationRoutes = require("./Routes/applicationRoutes")
 
 
 app.use(cors({
@@ -15,6 +17,11 @@ app.use(express.json())
 
 
 app.use("/api/auth", authRoutes)
+app.use("/api/jobs", jobRoutes)
+app.use("/api/application", applicationRoutes)
+
+
+
 
 mongoose.connect(process.env.MONGO_URL)
     .then(() => {
