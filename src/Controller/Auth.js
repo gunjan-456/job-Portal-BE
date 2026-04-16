@@ -23,6 +23,7 @@ exports.signup = async (req, res) => {
 };
 
 
+
 exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -43,13 +44,13 @@ exports.login = async (req, res) => {
       { expiresIn: "1d" }
     );
 
+    
     res.json({
-      message: "Login successful",
       token,
-      user
+      user   
     });
 
   } catch (error) {
-    res.status(500).json({ message: error.message })
+    res.status(500).json({ message: error.message });
   }
 }
