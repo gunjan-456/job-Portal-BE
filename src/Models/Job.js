@@ -6,7 +6,7 @@ const jobSchema = new mongoose.Schema({
   company: String,
   location: String,
   salary: Number,
-  skills: String,
+  skills: [String],
   createdBy: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User"
